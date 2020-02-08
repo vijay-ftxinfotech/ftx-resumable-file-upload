@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+  <div class="container">
+    <h1>FTX - Resumable File Upload Demo</h1>
+
+    <div class="alert alert-warining hidden" id="support-alert">
+      <b>Warning!</b> Your browser does not seem to support the features necessary to run tus-js-client. The buttons
+      below may work but probably will fail silently.
+    </div>
+
+    <br />
+
+    <table>
+      <tr style="display: none;">
+        <td>
+          <label for="endpoint">
+            Upload endpoint:
+          </label>
+        </td>
+        <td>
+          <input type="text" id="endpoint" name="endpoint" value="http://127.0.0.1:5000/uploads/">
+        </td>
+      </tr>
+      <tr style="display: none;">
+        <td>
+          <label for="chunksize">
+            Chunk size (bytes):
+          </label>
+        </td>
+        <td>
+          <input type="number" id="chunksize" name="chunksize" value="8388608" style="display: none;">
+        </td>
+      </tr>
+      <tr style="display: none;">
+        <td>
+          <label for="resume">
+            Perform full upload:
+            <br />
+            <small>(even if we could resume)</small>
+          </label>
+        </td>
+        <td>
+          <input type="checkbox" id="resume">
+        </td>
+      </tr>
+    </table>
+
+    <br />
+
+    <input type="file">
+
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="span8">
+        <div class="progress progress-striped progress-bar-info">
+          <div class="bar" style="width: 0%;"></div>
+        </div>
+      </div>
+      <div class="span4">
+        <button class="btn stop" id="toggle-btn">start upload</button>
+      </div>
+    </div>
+
+    <hr />
+    <h3>Uploads</h3>
+    <ul id="upload-list">
+      <li class="list-group-item">Succesful uploads will be listed here. Try one!</li>      
+    </ul>
+  </div>
+</body>
+<% include ../partials/footer.ejs %>
+
+</html>
